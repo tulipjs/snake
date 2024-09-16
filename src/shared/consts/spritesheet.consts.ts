@@ -1,2 +1,1 @@
-
-export const SPRITE_SHEET = 'assets/snake.json'
+export const SPRITE_SHEET = "snake/snake.json";

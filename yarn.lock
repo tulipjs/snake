@@ -214,10 +214,10 @@
   resolved "https://npm.jsr.io/~/11/@jsr/tu__queue/1.2.0.tgz#96D5710112E63B1EB44A01D9E13A2A5AEF9778C2"
   integrity sha512-cKor+uvIAg2qylGMMcgT3rpDlypd/N+Vs1ap+nKPUc/Ow6eVXJuJKJeX2X9lS6qUBT6gh5YSsFHNsDHuu4jOnQ==
 
-"@tu/tulip@npm:@jsr/tu__tulip@0.13.8":
-  version "0.13.8"
-  resolved "https://npm.jsr.io/~/11/@jsr/tu__tulip/0.13.8.tgz#E9F45101B4469F38BACF7D36CF664EFAC6431EC2"
-  integrity sha512-DVdm19dvs8Q7h/xzCpR2gocZSG/VumtxgJ4fh8JBzsDKrZy3zeIC4AU7W9kfjccLPzS1iuKqEmMWEyu6/VXphw==
+"@tu/tulip@npm:@jsr/tu__tulip@0.14.1":
+  version "0.14.1"
+  resolved "https://npm.jsr.io/~/11/@jsr/tu__tulip/0.14.1.tgz#8AC6238E29B51751D8333EE415B7D983578F18B8"
+  integrity sha512-5pQT/SLp7VnAxrZgM2CgJymCWPqLZmLsKVNtIh50+OqL/wIdCSLrih5hy5U0UNzPaTL0iMy/0vpSoGjIb3EZLw==
   dependencies:
     "@tulib/vite-tulip-plugin" "1.0.8"
     howler "2.2.4"

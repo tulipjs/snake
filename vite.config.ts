@@ -8,5 +8,10 @@ export default defineConfig({
     open: true,
   },
   plugins: [tsconfigPaths(), plugin()],
-  publicDir: "assets",
+  publicDir: "assets/",
+  build: {
+    outDir: "./build",
+    emptyOutDir: true, // also necessary
+  },
+  base: "./",
 });
