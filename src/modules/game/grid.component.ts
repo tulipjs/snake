@@ -48,7 +48,7 @@ export const gridComponent = () => {
   let snake: number[];
 
   const $generateNewApple = () => {
-    const targetIndex = getRandomNumber(0, GRID_LENGTH);
+    const targetIndex = getRandomNumber(0, GRID_LENGTH - 1);
     if (snake.includes(targetIndex)) return $generateNewApple();
     return targetIndex;
   };
@@ -95,8 +95,8 @@ export const gridComponent = () => {
     };
     const targetIndex = getGridIndexPosition(targetPosition);
     if (snake.includes(targetIndex)) {
+      $unmount();
       System.game.setGlobalScore();
-      removeTaskRepeat();
       return false;
     }
 
@@ -125,7 +125,7 @@ export const gridComponent = () => {
     $render();
   };
 
-  $container.on(DisplayObjectEvent.MOUNT, () => {
+  const $mount = () => {
     const initialPosition = {
       x: Math.floor(GRID_SIZE.width / 2),
       y: Math.floor(GRID_SIZE.height / 2),
@@ -147,7 +147,8 @@ export const gridComponent = () => {
     direction = Direction.RIGHT;
     isActionDone = true;
 
-    $render();
+    $tick();
+    $tick();
     removeTaskRepeat = System.tasks.add({
       type: TickerQueue.REPEAT,
       repeatEvery: timeAppleCount,
@@ -162,12 +163,15 @@ export const gridComponent = () => {
       direction = targetDirection;
       isActionDone = false;
     });
-  });
-  $container.on(DisplayObjectEvent.UNMOUNT, () => {
-    $dotsContainer.remove(...$dotsContainer.getChildren());
+  };
+  const $unmount = () => {
+    $dotsContainer.removeAll();
     removeTaskRepeat();
     removeOnKeyDown();
-  });
+  };
+
+  $container.on(DisplayObjectEvent.MOUNT, $mount);
+  $container.on(DisplayObjectEvent.UNMOUNT, $unmount);
 
   return $container.getComponent(gridComponent);
 };

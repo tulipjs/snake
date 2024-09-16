@@ -1,4 +1,5 @@
-import { queue, ticker, QueueItemProps } from "@tu/queue";
+import { queue, QueueItemProps, ticker } from "@tu/queue";
+import { Event, global } from "@tu/tulip";
 
 export const tasks = () => {
   const $ticker = ticker();
@@ -9,6 +10,10 @@ export const tasks = () => {
 
   const load = () => {
     $ticker.onTick(({ delta }) => $queue.tick(delta));
+
+    global.events.on(Event.VISIBILITY_CHANGE, () => {
+      global.window.isVisible() ? $ticker.start() : $ticker.pause();
+    });
   };
 
   const add = (props: QueueItemProps): (() => void) => {
